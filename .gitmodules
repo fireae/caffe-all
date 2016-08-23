@@ -1,0 +1,36 @@
+[submodule "3rdparty/lmdb"]
+	path = 3rdparty/lmdb
+	url = https://github.com/LMDB/lmdb.git
+[submodule "3rdparty/leveldb"]
+	path = 3rdparty/leveldb
+	url = https://github.com/google/leveldb.git
+[submodule "3rdparty/glog"]
+	path = 3rdparty/glog
+	url = https://github.com/google/glog.git
+[submodule "3rdparty/gflags"]
+	path = 3rdparty/gflags
+	url = https://github.com/gflags/gflags.git
+[submodule "3rdparty/OpenBLAS"]
+	path = 3rdparty/OpenBLAS
+	url = https://github.com/xianyi/OpenBLAS.git
+[submodule "3rdparty/protobuf"]
+	path = 3rdparty/protobuf
+	url = https://github.com/google/protobuf.git
+[submodule "3rdparty/snappy"]
+	path = 3rdparty/snappy
+	url = https://github.com/google/snappy.git
+[submodule "3rdparty/boost"]
+	path = 3rdparty/boost
+	url = https://github.com/boostorg/boost.git
+[submodule "caffe"]
+	path = caffe
+	url = https://github.com/BVLC/caffe.git
+[submodule "3rdparty/hdf5"]
+	path = 3rdparty/hdf5
+	url = https://github.com/soumagne/hdf5.git
+[submodule "3rdparty/opencv"]
+	path = 3rdparty/opencv
+	url = https://github.com/opencv/opencv.git
+[submodule "3rdparty/eigen"]
+	path = 3rdparty/eigen
+	url = https://github.com/RLovelett/eigen.git
