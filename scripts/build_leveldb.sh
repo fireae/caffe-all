@@ -16,6 +16,6 @@ MAKE=${TOOL_CHAIN_DIR}/make
 pwd
 $MAKE -j${N_JOBS}
 rm -rf "${INSTALL_DIR}/${PROJ_NAME}"
-mkdir -p "${INSTALL_DIR}/${PROJ_NAME}"/lib
-cp out-shared/lib* "${INSTALL_DIR}/${PROJ_NAME}"/lib
-cp -r include "${INSTALL_DIR}/${PROJ_NAME}"
+mkdir -p "${INSTALL_DIR}"/lib
+cp out-shared/lib* "${INSTALL_DIR}"/lib
+cp -r include "${INSTALL_DIR}"

@@ -1,0 +1,3 @@
+sudo apt-get install aptitude
+sudo aptitude install libtool 
+sudo apt-get install cmake

@@ -13,7 +13,8 @@ mkdir -p "${BUILD_DIR}"
 cd ${BUILD_DIR}
 
 cmake -DCMAKE_BUILD_TYPE=Release \
-      -DCMAKE_INSTALL_PREFIX="${INSTALL_DIR}/${PROJ_NAME}" \
+      -DCMAKE_INSTALL_PREFIX="${INSTALL_DIR}" \
+      -DCMAKE_CXX_FLAGS="-fPIC" \
       ..
 
 # compile params

@@ -13,7 +13,8 @@ mkdir -p "${BUILD_DIR}"
 cd ${BUILD_DIR}
 
 cmake -DCMAKE_BUILD_TYPE=Release \
-      -DCMAKE_INSTALL_PREFIX="${INSTALL_DIR}/${PROJ_NAME}" \
+      -DCMAKE_INSTALL_PREFIX="${INSTALL_DIR}" \
+      -DCMAKE_CXX_FLAGS="-fPIC" \
       -Dprotobuf_BUILD_TESTS=OFF \
       ../cmake
 
@@ -24,4 +25,4 @@ MAKE=${TOOL_CHAIN_DIR}/make
 pwd
 $MAKE -j${N_JOBS}
 rm -rf "${INSTALL_DIR}/${PROJ_NAME}"
-$MAKE install/strip
+$MAKE install

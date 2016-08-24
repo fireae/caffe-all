@@ -12,17 +12,25 @@ mkdir -p "${ROOT_DIR}/3rdparty/${PROJ_NAME}/include"
 
 MODULES=`ls ${ROOT_DIR}/3rdparty/${PROJ_NAME}/libs`
 for MODULE in ${MODULES}; do
-  if [ -d $MODULE ]; then
-    cp -r "${ROOT_DIR}/3rdparty/${PROJ_NAME}/libs/${MODULE}/include/boost" "${ROOT_DIR}/3rdparty/${PROJ_NAME}/include"
+  if [ -d "${ROOT_DIR}/3rdparty/${PROJ_NAME}/libs/${MODULE}" ]; then
+    echo ${MODULE}
+    NUMERIC=numeric
+    if [ "${MODULE}" = "${NUMERIC}" ]; then 
+      cp -r "${ROOT_DIR}/3rdparty/${PROJ_NAME}/libs/${MODULE}/conversion/include/boost" "${ROOT_DIR}/3rdparty/${PROJ_NAME}/include"
+      cp -r "${ROOT_DIR}/3rdparty/${PROJ_NAME}/libs/${MODULE}/interval/include/boost" "${ROOT_DIR}/3rdparty/${PROJ_NAME}/include"
+      cp -r "${ROOT_DIR}/3rdparty/${PROJ_NAME}/libs/${MODULE}/odeint/include/boost" "${ROOT_DIR}/3rdparty/${PROJ_NAME}/include"
+      cp -r "${ROOT_DIR}/3rdparty/${PROJ_NAME}/libs/${MODULE}/ublas/include/boost" "${ROOT_DIR}/3rdparty/${PROJ_NAME}/include"
+    else    
+      cp -r "${ROOT_DIR}/3rdparty/${PROJ_NAME}/libs/${MODULE}/include/boost" "${ROOT_DIR}/3rdparty/${PROJ_NAME}/include"
+    fi
   fi
 done
 
 rm -rf "${BUILD_DIR}"
 mkdir -p "${BUILD_DIR}"
 cd ${BUILD_DIR}
-pwd
 
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="${INSTALL_DIR}/${PROJ_NAME}" ..
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="${INSTALL_DIR}" -DCMAKE_CXX_FLAGS="-fPIC" ..
 
 # compile params
 TOOL_CHAIN_DIR=/usr/bin

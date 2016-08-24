@@ -13,7 +13,7 @@ mkdir -p "${BUILD_DIR}"
 cd ${BUILD_DIR}
 pwd
 
-cmake -DCMAKE_BUILD_TYPE=Release -DGFLAGS_INCLUDE_DIR="${INSTALL_DIR}/gflags/include" -DGFLAGS_LIBRARY="${INSTALL_DIR}/gflags/lib/libgflags.a" -DCMAKE_INSTALL_PREFIX="${INSTALL_DIR}/${PROJ_NAME}" ..
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-fPIC" -DGFLAGS_INCLUDE_DIR="${INSTALL_DIR}/gflags/include" -DGFLAGS_LIBRARY="${INSTALL_DIR}/gflags/lib/libgflags.a" -DCMAKE_INSTALL_PREFIX="${INSTALL_DIR}" ..
 
 # compile params
 TOOL_CHAIN_DIR=/usr/bin

@@ -13,7 +13,7 @@ mkdir -p "${BUILD_DIR}"
 cd ${BUILD_DIR}
 
 cmake -DCMAKE_BUILD_TYPE=Release \
-      -DCMAKE_INSTALL_PREFIX="${INSTALL_DIR}/${PROJ_NAME}" \
+      -DCMAKE_INSTALL_PREFIX="${INSTALL_DIR}" \
       ..
 
 # compile params
@@ -22,5 +22,5 @@ N_JOBS=1
 MAKE=${TOOL_CHAIN_DIR}/make
 pwd
 $MAKE -j${N_JOBS}
-rm -rf "${INSTALL_DIR}/${PROJ_NAME}"
+#rm -rf "${INSTALL_DIR}"
 $MAKE install

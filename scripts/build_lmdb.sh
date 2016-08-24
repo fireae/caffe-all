@@ -18,6 +18,6 @@ MAKE=${TOOL_CHAIN_DIR}/make
 make clean
 make -j${N_JOBS} XCFLAGS="-DMDB_DSYNC=O_SYNC -DMDB_USE_ROBUST=0"
 
-rm -rf "$INSTALL_DIR/lmdb"
-make prefix="$INSTALL_DIR/lmdb" install
+#rm -rf "$INSTALL_DIR/"
+make prefix="$INSTALL_DIR" install
 

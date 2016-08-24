@@ -8,7 +8,7 @@ PROJECT_ROOT=${ROOT_DIR}/3rdparty/${PROJ_NAME}
 BUILD_DIR=${PROJECT_ROOT}/build
 INSTALL_DIR=${ROOT_DIR}/${INSTALL_TYPE}
 
-rm -rf "${BUILD_DIR}"
+#rm -rf "${BUILD_DIR}"
 mkdir -p "${BUILD_DIR}"
 cd ${BUILD_DIR}
 
@@ -20,7 +20,7 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -D BUILD_PERF_TESTS=OFF \
       -D BUILD_TESTS=OFF \
       -DCMAKE_BUILD_WITH_INSTALL_RPATH=ON \
-      -DCMAKE_INSTALL_PREFIX="${INSTALL_DIR}/${PROJ_NAME}" \
+      -DCMAKE_INSTALL_PREFIX="${INSTALL_DIR}" \
       ..
 
 # compile params
@@ -30,4 +30,4 @@ MAKE=${TOOL_CHAIN_DIR}/make
 pwd
 $MAKE -j${N_JOBS}
 rm -rf "${INSTALL_DIR}/${PROJ_NAME}"
-$MAKE install/strip
+$MAKE install

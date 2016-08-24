@@ -8,11 +8,13 @@ PROJECT_ROOT=${ROOT_DIR}/3rdparty/${PROJ_NAME}
 BUILD_DIR=${PROJECT_ROOT}/build
 INSTALL_DIR=${ROOT_DIR}/${INSTALL_TYPE}
 
-rm -rf "${BUILD_DIR}"
-mkdir -p "${BUILD_DIR}"
-cd ${BUILD_DIR}
+cd ${PROJECT_ROOT}
 
-../autogen.sh
+./autogen.sh
+
+rm -rf ${BUILD_DIR}
+mkdir -p ${BUILD_DIR}
+cd ${BUILD_DIR}
 
 cmake -DCMAKE_BUILD_TYPE=Release \
       -DBUILD_STATIC_EXECS=OFF \
@@ -20,7 +22,7 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -DHDF5_BUILD_EXAMPLES=OFF \
       -DHDF5_BUILD_HL_LIB=OFF \
       -DHDF5_BUILD_TOOLS=OFF \
-      -DCMAKE_INSTALL_PREFIX="${INSTALL_DIR}/${PROJ_NAME}" \
+      -DCMAKE_INSTALL_PREFIX="${INSTALL_DIR}" \
       ..
 
 # compile params

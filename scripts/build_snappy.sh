@@ -11,7 +11,7 @@ INSTALL_DIR=${ROOT_DIR}/${INSTALL_TYPE}
 cd ${PROJECT_ROOT}
 
 ./autogen.sh
-./configure --prefix=${INSTALL_DIR}/${PROJ_NAME}
+./configure --prefix=${INSTALL_DIR}
 
 # compile params
 TOOL_CHAIN_DIR=/usr/bin
