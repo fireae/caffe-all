@@ -35,20 +35,12 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -DUSE_LEVELDB=OFF \
       -DUSE_HDF5=OFF \
       -DBLAS=${BLAS} \
-      -DBOOST_ROOT="${INSTALL_DIR}" \
-      -DGFLAGS_INCLUDE_DIR="${INSTALL_DIR}/include" \
-      -DGFLAGS_LIBRARY="${INSTALL_DIR}/lib/libgflags.a" \
-      -DGLOG_INCLUDE_DIR="${INSTALL_DIR}/include" \
-      -DGLOG_LIBRARY="${INSTALL_DIR}/lib/libglog.a" \
-      -DOpenCV_DIR="${INSTALL_DIR}" \
-      -DPROTOBUF_PROTOC_EXECUTABLE="${INSTALL_DIR}/protobuf_host/bin/protoc" \
-      -DPROTOBUF_INCLUDE_DIR="${INSTALL_DIR}/include" \
-      -DPROTOBUF_LIBRARY="${INSTALL_DIR}/lib/libprotobuf.a" \
-      -DHDF5_INCLUDE_DIRS="${INSTALL_DIR}/include" \
-      -DHDF5_LIBRARIES="${INSTALL_DIR}/lib/libhdf5.so" \
-      -DHDF5_HL_INCLUDE_DIR="${INSTALL_DIR}/include" \
-      -DHDF5_HL_LIBRARIES="${INSTALL_DIR}/lib/libhdf5_cpp.so" \
-      -DCMAKE_INSTALL_PREFIX="${INSTALL_DIR}" \
+      -DBOOST_ROOT="${INSTALL_DIR}/boost" \
+      -DOpenCV_DIR="${INSTALL_DIR}/opencv" \
+      -DPROTOBUF_PROTOC_EXECUTABLE="${INSTALL_DIR}/protobuf/bin/protoc" \
+      -DPROTOBUF_INCLUDE_DIR="${INSTALL_DIR}/protobuf/include" \
+      -DPROTOBUF_LIBRARY="${INSTALL_DIR}/protobuf/lib/libprotobuf.a" \
+      -DCMAKE_INSTALL_PREFIX="${INSTALL_DIR}/caffe" \
       ..
 
 # compile params
