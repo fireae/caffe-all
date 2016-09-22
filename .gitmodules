@@ -24,7 +24,7 @@
 	url = https://github.com/boostorg/boost.git
 [submodule "caffe"]
 	path = caffe
-	url = https://github.com/BVLC/caffe.git
+	url = https://github.com/fireae/caffe.git
 [submodule "3rdparty/hdf5"]
 	path = 3rdparty/hdf5
 	url = https://github.com/soumagne/hdf5.git
