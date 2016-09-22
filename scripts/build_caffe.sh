@@ -6,6 +6,7 @@ INSTALL_TYPE=release
 ROOT_DIR=$(readlink -f "`dirname $0`"/..)
 PROJECT_ROOT=${ROOT_DIR}/${PROJ_NAME}
 BUILD_DIR=${PROJECT_ROOT}/build
+DEPEND_DIR=${ROOT_DIR}/${INSTALL_TYPE}/
 INSTALL_DIR=${ROOT_DIR}/${INSTALL_TYPE}/${PROJ_NAME}
 
 
@@ -35,17 +36,17 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -DUSE_LEVELDB=OFF \
       -DUSE_HDF5=OFF \
       -DBLAS=${BLAS} \
-      -DBOOST_ROOT="${INSTALL_DIR}/boost" \
-      -DOpenCV_DIR="${INSTALL_DIR}/opencv" \
-      -DPROTOBUF_PROTOC_EXECUTABLE="${INSTALL_DIR}/protobuf/bin/protoc" \
-      -DPROTOBUF_INCLUDE_DIR="${INSTALL_DIR}/protobuf/include" \
-      -DPROTOBUF_LIBRARY="${INSTALL_DIR}/protobuf/lib/libprotobuf.a" \
-      -DCMAKE_INSTALL_PREFIX="${INSTALL_DIR}/caffe" \
+      -DBOOST_ROOT="${DEPEND_DIR}/boost" \
+      -DOpenCV_DIR="${DEPEND_DIR}/opencv" \
+      -DPROTOBUF_PROTOC_EXECUTABLE="${DEPEND_DIR}/protobuf/bin/protoc" \
+      -DPROTOBUF_INCLUDE_DIR="${DEPEND_DIR}/protobuf/include" \
+      -DPROTOBUF_LIBRARY="${DEPEND_DIR}/protobuf/lib/libprotobuf.a" \
+      -DCMAKE_INSTALL_PREFIX="${INSTALL_DIR}" \
       ..
 
 # compile params
 N_JOBS=1
 pwd
 make -j${N_JOBS}
-rm -rf "${INSTALL_DIR}/${PROJ_NAME}"
+rm -rf "${INSTALL_DIR}"
 make install
