@@ -13,9 +13,9 @@ cd ${ROOT_DIR}/scripts
 #./build_leveldb.sh
 
 # required 
-#./build_boost.sh
-#./build_lmdb.sh
-#./build_openblas.sh
+./build_boost.sh
+./build_lmdb.sh
+./build_openblas.sh
 ./build_protobuf.sh
 ./build_opencv.sh
 #./build_protobuf_host.sh

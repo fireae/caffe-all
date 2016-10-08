@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -e
 
 PROJ_NAME=caffe
@@ -8,7 +8,6 @@ PROJECT_ROOT=${ROOT_DIR}/${PROJ_NAME}
 BUILD_DIR=${PROJECT_ROOT}/build
 DEPEND_DIR=${ROOT_DIR}/${INSTALL_TYPE}/
 INSTALL_DIR=${ROOT_DIR}/${INSTALL_TYPE}/${PROJ_NAME}
-
 
 USE_OPENBLAS=${USE_OPENBLAS:-1}
 if [ ${USE_OPENBLAS} -eq 1 ]; then
@@ -23,29 +22,29 @@ rm -rf "${BUILD_DIR}"
 mkdir -p "${BUILD_DIR}"
 cd ${BUILD_DIR}
 # set ENV
-
+echo 'depend dir '${DEPEND_DIR}
 export HDF5_ROOT=${INSTALL_DIR}
 export OpenCV_DIR=${INSTALL_DIR}/share/OpenCV
-export LMDB_DIR=${INSTALL_DIR}
 cmake -DCMAKE_BUILD_TYPE=Release \
       -DADDITIONAL_FIND_PATH="${INSTALL_DIR}" \
       -DBUILD_python=OFF \
       -DBUILD_docs=OFF \
-      -DCPU_ONLY=ON \
-      -DUSE_LMDB=ON \
-      -DUSE_LEVELDB=OFF \
-      -DUSE_HDF5=OFF \
       -DBLAS=${BLAS} \
 　　　　　　-DLMDB_INCLUDE_DIR="${DEPEND_DIR}/lmdb/include" \
-	  -DLMDB_LIBRARIES="${DEPEND_DIR}/lmdb/lib/liblmdb.so" \
+      -DLMDB_LIBRARIES="${DEPEND_DIR}/lmdb/lib/liblmdb.so" \
       -DOpenBLAS_INCLUDE_DIR="${DEPEND_DIR}/OpenBLAS/include" \
-	  -DOpenBLAS_LIB="${DEPEND_DIR}/OpenBLAS/lib/libopenblas.so" \
+      -DOpenBLAS_LIB="${DEPEND_DIR}/OpenBLAS/lib/libopenblas.so" \
       -DBOOST_ROOT="${DEPEND_DIR}/boost" \
-      -DOpenCV_DIR="${DEPEND_DIR}/opencv" \
+      -DBOOST_LIBRARIES="${DEPEND_DIR}/boost/lib/libboost_system.a" \
+      -DOpenCV_DIR="${DEPEND_DIR}/opencv/share/OpenCV" \
       -DPROTOBUF_PROTOC_EXECUTABLE="${DEPEND_DIR}/protobuf/bin/protoc" \
       -DPROTOBUF_INCLUDE_DIR="${DEPEND_DIR}/protobuf/include" \
       -DPROTOBUF_LIBRARY="${DEPEND_DIR}/protobuf/lib/libprotobuf.a" \
       -DCMAKE_INSTALL_PREFIX="${INSTALL_DIR}" \
+      -DCPU_ONLY=OFF \
+      -DUSE_LMDB=ON \
+      -DUSE_LEVELDB=OFF \
+      -DUSE_HDF5=OFF \
       ..
 
 # compile params
